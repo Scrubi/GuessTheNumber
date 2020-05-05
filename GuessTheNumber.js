@@ -1,5 +1,5 @@
 var randomNumber = Math.floor(Math.random() * 100) + 1;
-const guesses = document.querySelector(".guesses");
+var guesses = document.querySelector(".guesses");
 const lastResult = document.querySelector(".lastResult");
 const lowOrHi = document.querySelector(".lowOrHi");
 const guessSubmit = document.querySelector(".guessSubmit");
@@ -10,10 +10,13 @@ var resetButton;
 function checkGuess() {
   var userGuess = Number(guessField.value);
   if (guessCount === 1) {
-    guesses.textContent = "Previous guesses: ";
+    guesses = new Array();
   }
-
-  guesses.textContent += userGuess + " ";
+  guesses.indexOf(userGuess) === -1
+    ? guesses.push(userGuess)
+    : alert("You already guessed that number, please give a new number.");
+  var x = guesses.toString();
+  document.getElementById("demo").innerHTML = x;
 
   if (userGuess === randomNumber) {
     lastResult.textContent = "Congratulations! You got it right!";

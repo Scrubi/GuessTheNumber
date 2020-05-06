@@ -12,10 +12,12 @@ function checkGuess() {
   if (guessCount === 1) {
     guesses = new Array();
   }
-  guesses.indexOf(userGuess) === -1
-    ? guesses.push(userGuess)
-    : alert("You already guessed that number, please give a new number.");
-
+  if (guesses.indexOf(userGuess) === -1) {
+    guesses.push(userGuess);
+  } else {
+    guessCount--;
+    alert("You already guessed that number, please give a new number.");
+  }
   var x = guesses.toString();
   document.getElementById("demo").innerHTML = x;
 

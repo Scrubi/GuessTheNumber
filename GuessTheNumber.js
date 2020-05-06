@@ -15,6 +15,7 @@ function checkGuess() {
   guesses.indexOf(userGuess) === -1
     ? guesses.push(userGuess)
     : alert("You already guessed that number, please give a new number.");
+
   var x = guesses.toString();
   document.getElementById("demo").innerHTML = x;
 
